@@ -21,6 +21,14 @@ import { Component, OnInit } from '@angular/core';
               <h2 [style.color]="hasError ? 'purple' : 'orange'">Style Binding</h2>
               <h2 [style.color]="highlightColor">Style Binding</h2>
               <h2 [ngStyle]="titleStyles">Style Binding</h2>
+
+              <!--Event Binding-->
+              <button (click)="onClick($event)">Greet</button>
+              
+              <br>
+              <button (click)="greeting ='Welcome User'">Greetings</button>
+              <br>
+              {{greeting}}
               `,
   //styleUrls: ['./test.component.css']
   styles: [`
@@ -60,6 +68,9 @@ export class TestComponent implements OnInit {
     color : "blue",
     fontStyle: "italic"
   }
+
+  //Event Binding
+  public greeting = "";
   constructor() { }
 
   ngOnInit() {
@@ -67,6 +78,11 @@ export class TestComponent implements OnInit {
 
   greetUser(){
     return "Hello " + this.name;
+  }
+
+  onClick(event){
+    console.log(event);
+    this.greeting="Hello User !!";
   }
 
 }
