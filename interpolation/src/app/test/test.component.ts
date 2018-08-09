@@ -29,6 +29,16 @@ import { Component, OnInit } from '@angular/core';
               <button (click)="greeting ='Welcome User'">Greetings</button>
               <br>
               {{greeting}}
+
+              <!--Template Refrence Variables-->
+              <input #myInput type="text">
+              <button (click)="showVal(myInput.value)">Show</button>
+              <br>
+
+              <!--Two way Binding-->
+              <p>Two way binding</p>
+              <input [(ngModel)]="twoWayBinding" type="text">
+              {{twoWayBinding}}
               `,
   //styleUrls: ['./test.component.css']
   styles: [`
@@ -71,6 +81,10 @@ export class TestComponent implements OnInit {
 
   //Event Binding
   public greeting = "";
+
+  //Two way binding
+  public twoWayBinding="";
+
   constructor() { }
 
   ngOnInit() {
@@ -83,6 +97,10 @@ export class TestComponent implements OnInit {
   onClick(event){
     console.log(event);
     this.greeting="Hello User !!";
+  }
+
+  showVal(value){
+    console.log(value);
   }
 
 }
