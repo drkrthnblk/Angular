@@ -17,7 +17,10 @@ import { Component, OnInit } from '@angular/core';
               <h2 [class]="successClass">HEllo World</h2>
               <h2 [ngClass]="messageClasses">Multiple Class Binding</h2>
               
-
+              <!--Style Binding-->
+              <h2 [style.color]="hasError ? 'purple' : 'orange'">Style Binding</h2>
+              <h2 [style.color]="highlightColor">Style Binding</h2>
+              <h2 [ngStyle]="titleStyles">Style Binding</h2>
               `,
   //styleUrls: ['./test.component.css']
   styles: [`
@@ -49,6 +52,13 @@ export class TestComponent implements OnInit {
     "text-success":!this.hasError,
     "text-danger": this.hasError,
     "text-special": this.isSpecial
+  }
+
+  //Style Binding
+  public highlightColor = "purple";
+  public titleStyles = {
+    color : "blue",
+    fontStyle: "italic"
   }
   constructor() { }
 
